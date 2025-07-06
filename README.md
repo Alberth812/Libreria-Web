@@ -3,36 +3,42 @@
 ![WhatsApp Image 2025-07-04 at 18 19 31](https://github.com/user-attachments/assets/d6bef53a-f0c9-4cf3-b31b-8c40e9706540)
 
 Libreria Web
-Breve descripción (¿qué problema resuelve?).
-Función	Qué hace
+Esta librería proporciona un conjunto de funciones utilitarias para el manejo avanzado de fechas en aplicaciones web, resolviendo problemas comunes en la manipulación, formateo y validación de fechas en JavaScript.
+Funcionalidades Detalladas
+hoy()
 
-hoy()	Devuelve la fecha actual en formato "yyyy-mm-dd"
+Descripción técnica: Implementa un wrapper de new Date() con normalización ISO 8601
+Salida: string en formato "yyyy-mm-dd"
+Ejemplo: 2023-07-20
 
-formatearFecha(fecha, formato)	Formatea una fecha en varios formatos ("dd/mm/yyyy", "mm-dd-yyyy", etc.)
+Parámetros:
 
-esFinDeSemana(fecha)	Devuelve true si la fecha es sábado o domingo
+    fecha: string (ISO 8601) o objeto Date
 
-sumarDias(fecha, dias)	Suma días a una fecha y devuelve la nueva fecha en "yyyy-mm-dd"
+    formato: string con tokens:
 
-restarDias(fecha, dias)	Resta días (usa sumarDias con valores negativos)
+        "dd/mm/yyyy": Formato europeo
 
-diferenciaDias(fecha1, fecha2)	Diferencia en días entre dos fechas
+        "mm-dd-yyyy": Formato americano
 
-esFechaValida(fecha)	Valida si la fecha está en formato "yyyy-mm-dd" y es válida
+        "yyyy/mm/dd": Formato japonés
 
-obtenerDiaSemana(fecha, locale)	Devuelve el día de la semana en texto, ej. "lunes"
+Algoritmo: Utiliza Intl.DateTimeFormat para localización
+Validaciones: Verifica formato de entrada
+Ejemplo: formatearFecha('2023-07-20', 'dd/mm/yyyy') → "20/07/2023"
+![imagen](https://github.com/user-attachments/assets/92c63ebe-d60e-4dca-937e-c0c12b75928c)
+Cálculo:
 
-obtenerMes(fecha, locale)	Devuelve el mes en texto, ej. "julio"
+    Convierte ambas fechas a timestamps
 
-esBisiesto(anio)	Devuelve true si el año es bisiesto
+    Diferencia en ms: Math.abs(date1 - date2)
 
-ultimoDiaMes(fecha)	Devuelve el último día del mes de la fecha dada
+    Conversión a días: ms / (1000 * 60 * 60 * 24)
 
-fechaAleatoriaEntre(fechaInicio, fechaFin)	Devuelve una fecha aleatoria entre dos fechas
+Precisión: Trunca decimales (días completos)
+esFechaValida(fecha)
 
-sumarMeses(fecha, meses)	Suma meses a una fecha y devuelve la nueva fecha
 
-esFechaPasada(fecha)	Dice si la fecha ya pasó (antes del día actual)
 
 ![WhatsApp Image 2025-07-04 at 14 39 12](https://github.com/user-attachments/assets/70898770-2e3b-4e98-9cc9-ef4e6f8bd64d)
 
