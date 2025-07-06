@@ -2,37 +2,40 @@
  
 ![WhatsApp Image 2025-07-04 at 18 19 31](https://github.com/user-attachments/assets/d6bef53a-f0c9-4cf3-b31b-8c40e9706540)
 
-Libreria Web
-Breve descripción (¿qué problema resuelve?).
-Función	Qué hace
+Esta librería proporciona un conjunto de funciones utilitarias para el manejo avanzado de fechas en aplicaciones web, resolviendo problemas comunes en la manipulación, formateo y validación de fechas en JavaScript.
 
-hoy()	Devuelve la fecha actual en formato "yyyy-mm-dd"
+Funcionalidades Detalladas
+hoy()
 
-formatearFecha(fecha, formato)	Formatea una fecha en varios formatos ("dd/mm/yyyy", "mm-dd-yyyy", etc.)
+Descripción técnica: Implementa un wrapper de new Date() con normalización ISO 8601
+Salida: string en formato "yyyy-mm-dd"
+Ejemplo: 2023-07-20
+Complejidad: O(1)
+Lista de Parámetros utilizados:
 
-esFinDeSemana(fecha)	Devuelve true si la fecha es sábado o domingo
+    fecha: string (ISO 8601) o objeto Date
 
-sumarDias(fecha, dias)	Suma días a una fecha y devuelve la nueva fecha en "yyyy-mm-dd"
+    formato: string con tokens:
 
-restarDias(fecha, dias)	Resta días (usa sumarDias con valores negativos)
+        "dd/mm/yyyy": Formato europeo
 
-diferenciaDias(fecha1, fecha2)	Diferencia en días entre dos fechas
+        "mm-dd-yyyy": Formato americano
 
-esFechaValida(fecha)	Valida si la fecha está en formato "yyyy-mm-dd" y es válida
+        "yyyy/mm/dd": Formato japonés
+Algoritmo: Utiliza Intl.DateTimeFormat para localización
+Validaciones: Verifica formato de entrada
+Ejemplo: formatearFecha('2023-07-20', 'dd/mm/yyyy') → "20/07/2023"
+    Obtiene día de la semana (0-6) donde 0=domingo, 6=sábado
 
-obtenerDiaSemana(fecha, locale)	Devuelve el día de la semana en texto, ej. "lunes"
+    Verifica día === 0 || día === 6
 
-obtenerMes(fecha, locale)	Devuelve el mes en texto, ej. "julio"
+Optimización: Evita creación de objetos Date redundantes
+Retorno: boolean
+sumarDias(fecha, dias)
+![imagen](https://github.com/user-attachments/assets/1134148e-6d6c-4cb2-aef2-467208562184)
 
-esBisiesto(anio)	Devuelve true si el año es bisiesto
 
-ultimoDiaMes(fecha)	Devuelve el último día del mes de la fecha dada
-
-fechaAleatoriaEntre(fechaInicio, fechaFin)	Devuelve una fecha aleatoria entre dos fechas
-
-sumarMeses(fecha, meses)	Suma meses a una fecha y devuelve la nueva fecha
-
-esFechaPasada(fecha)	Dice si la fecha ya pasó (antes del día actual)
+ 
 
 ![WhatsApp Image 2025-07-04 at 14 39 12](https://github.com/user-attachments/assets/70898770-2e3b-4e98-9cc9-ef4e6f8bd64d)
 
